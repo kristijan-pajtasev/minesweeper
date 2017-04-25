@@ -1,0 +1,19 @@
+{
+  "name": "minesweeper",
+  "version": "0.0.0",
+  "description": "Minesweeper game done just as an small practice",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kristijan-pajtasev/minesweeper.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kristijan-pajtasev/minesweeper/issues"
+  },
+  "homepage": "https://github.com/kristijan-pajtasev/minesweeper#readme"
+}
