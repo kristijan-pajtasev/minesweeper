@@ -6,6 +6,29 @@ class Minesweeper {
 
         this.field = this.generateEmptyField(rows, columns);
         this.addMines(rows, columns, mines, this.field);
+        this.fillWithAdjacentMinesCount(this.field);
+    }
+
+    fillWithAdjacentMinesCount(field) {
+        field.forEach((row, rowIndex) => {
+            field.forEach((element, columnIndex) => {
+                if(!element.hasMine) {
+                    row[columnIndex].adjacentMinesCount = this.getNumberOfAdjacentMines(rowIndex, columnIndex, field);
+                }
+            })
+        })
+    }
+
+    getNumberOfAdjacentMines(row, column, field) {
+        let sum = 0;
+        for(let r = row - 1; r <= row + 1; r++) {
+            for(let c = column - 1; c <= column + 1; c++) {
+                if(!(r === row && c === column) && !!field[r] && !!field[r][c] && field[r][c].hasMine) {
+                    sum++;
+                }
+            }
+        }
+        return sum;
     }
 
     generateEmptyField(rows, columns) {
@@ -42,7 +65,7 @@ class Minesweeper {
     }
 
     getStringRepresentationForPosition(field) {
-        return field.hasMine ? "M" : "-";
+        return field.hasMine ? "M" : field.adjacentMinesCount;
     }
 }
 
